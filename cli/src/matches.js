@@ -137,7 +137,7 @@ programCommand("join_match")
     loglevel_1.default.info("lastplay:", u.lastplay.toNumber());
     loglevel_1.default.info("winningnow:", u.winning.toBase58());
     loglevel_1.default.info("win at:", u.lastthousand.toNumber());
-    loglevel_1.default.info('seconds from lastplay til next winna can be chosen', u.lastthousand.toNumber() - u.lastplay.toNumber());
+    loglevel_1.default.info('seconds til next winna can be chosen', parseInt((u.lastthousand.toNumber() - new Date().getTime() / 1000).toString()));
     const winning = matchInstance.object.winning;
     for (let i = 0; i < indices.length; i++) {
         const setup = config.tokensToJoin[indices[i]];
