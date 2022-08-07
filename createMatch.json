@@ -9,7 +9,8 @@
   "leaveAllowed": true,
   "joinAllowedDuringStart": true,
   "oracleState": {
-    "seed": "6bHxaeHhrH42amvYqmxdquzDb3ZiabprKoJuNrSTY9qJ",
+    "seed": 
+"Ff9GNMJzhyU32wj12GD3bdUVae4xGTtS5pkdRvxvaieU",
     "authority": "CMVfmxKAK1VQMFAQifnpsmTmg2JEdLtw5MkmqqHm9wCY",
     "finalized": false,
     "tokenTransferRoot": null,

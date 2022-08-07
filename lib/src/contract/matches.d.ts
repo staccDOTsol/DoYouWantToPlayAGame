@@ -1,6 +1,5 @@
 /// <reference types="node" />
 import { web3, Program, BN } from "@project-serum/anchor";
-import { Keypair, PublicKey } from "@solana/web3.js";
 import NodeWallet from "@project-serum/anchor/dist/cjs/nodewallet";
 import { ObjectWrapper } from "./common";
 import { AnchorMatchState, AnchorTokenDelta, AnchorTokenEntryValidation, TokenType } from "../state/matches";
@@ -118,7 +117,7 @@ export declare class MatchesInstruction {
         id: web3.PublicKey;
         program: Program;
     });
-    createMatch(kp: Keypair, args: CreateMatchArgs, _accounts?: {}, _additionalArgs?: {}): Promise<{
+    createMatch(kp: web3.Keypair, args: CreateMatchArgs, _accounts?: {}, _additionalArgs?: {}): Promise<{
         instructions: web3.TransactionInstruction[];
         signers: any[];
     }>;
@@ -134,7 +133,7 @@ export declare class MatchesInstruction {
         instructions: web3.TransactionInstruction[];
         signers: any[];
     }>;
-    updateMatch(kp: Keypair, args: UpdateMatchArgs, accounts: UpdateMatchAccounts, _additionalArgs?: {}): Promise<{
+    updateMatch(kp: web3.Keypair, args: UpdateMatchArgs, accounts: UpdateMatchAccounts, _additionalArgs?: {}): Promise<{
         instructions: web3.TransactionInstruction[];
         signers: any[];
     }>;
@@ -142,11 +141,11 @@ export declare class MatchesInstruction {
         instructions: web3.TransactionInstruction[];
         signers: any[];
     }>;
-    joinMatch(kp: Keypair, args: JoinMatchArgs, accounts: JoinMatchAccounts, additionalArgs: JoinMatchAdditionalArgs, winning: PublicKey): Promise<{
+    joinMatch(kp: web3.Keypair, args: JoinMatchArgs, accounts: JoinMatchAccounts, additionalArgs: JoinMatchAdditionalArgs, winning: web3.PublicKey): Promise<{
         instructions: web3.TransactionInstruction[];
         signers: web3.Keypair[];
     }>;
-    updateMatchFromOracle(kp: Keypair, args: {}, accounts: UpdateMatchFromOracleAccounts, _additionalArgs?: {}): Promise<{
+    updateMatchFromOracle(kp: web3.Keypair, args: {}, accounts: UpdateMatchFromOracleAccounts, _additionalArgs?: {}): Promise<{
         instructions: web3.TransactionInstruction[];
         signers: any[];
     }>;
@@ -169,15 +168,15 @@ export declare class MatchesProgram {
     });
     fetchMatch(oracle: web3.PublicKey): Promise<MatchWrapper>;
     fetchOracle(oracle: web3.PublicKey): Promise<MatchWrapper>;
-    createMatch(kp: Keypair, args: CreateMatchArgs, _accounts: {}, additionalArgs: CreateMatchAdditionalArgs): Promise<void>;
+    createMatch(kp: web3.Keypair, args: CreateMatchArgs, _accounts: {}, additionalArgs: CreateMatchAdditionalArgs): Promise<void>;
     disburseTokensByOracle(args: DisburseTokensByOracleArgs, accounts: DisburseTokensByOracleAccounts, additionalArgs: DisburseTokensByOracleAdditionalArgs): Promise<void>;
     drainMatch(args: DrainMatchArgs, accounts: DrainMatchAccounts, additionalArgs: DrainMatchAdditionalArgs): Promise<void>;
     drainOracle(args: DrainOracleArgs, accounts: DrainOracleAccounts, _additionalArgs?: {}): Promise<void>;
-    joinMatch(kp: Keypair, args: JoinMatchArgs, accounts: JoinMatchAccounts, additionalArgs: JoinMatchAdditionalArgs, winning: any): Promise<void>;
+    joinMatch(kp: web3.Keypair, args: JoinMatchArgs, accounts: JoinMatchAccounts, additionalArgs: JoinMatchAdditionalArgs, winning: any): Promise<void>;
     leaveMatch(args: LeaveMatchArgs, accounts: LeaveMatchAccounts, additionalArgs: LeaveMatchAdditionalArgs): Promise<void>;
-    updateMatch(kp: Keypair, args: UpdateMatchArgs, accounts: UpdateMatchAccounts, _additionalArgs?: {}): Promise<void>;
-    updateMatchFromOracle(kp: Keypair, args: {}, accounts: UpdateMatchFromOracleAccounts, _additionalArgs?: {}): Promise<void>;
-    join(kp: Keypair, args: CreateOrUpdateOracleArgs, _accounts?: {}, _additionalArgs?: {}): Promise<void>;
-    createOrUpdateOracle(kp: Keypair, args: CreateOrUpdateOracleArgs, _accounts?: {}, _additionalArgs?: {}): Promise<void>;
+    updateMatch(kp: web3.Keypair, args: UpdateMatchArgs, accounts: UpdateMatchAccounts, _additionalArgs?: {}): Promise<void>;
+    updateMatchFromOracle(kp: web3.Keypair, args: {}, accounts: UpdateMatchFromOracleAccounts, _additionalArgs?: {}): Promise<void>;
+    join(kp: web3.Keypair, args: CreateOrUpdateOracleArgs, _accounts?: {}, _additionalArgs?: {}): Promise<void>;
+    createOrUpdateOracle(kp: web3.Keypair, args: CreateOrUpdateOracleArgs, _accounts?: {}, _additionalArgs?: {}): Promise<void>;
 }
-export declare function getMatchesProgram(anchorWallet: NodeWallet | web3.Keypair, env: string, customRpcUrl: string): Promise<MatchesProgram>;
+export declare function getMatchesProgram(anchorWallet: NodeWallet | web3.Keypair, env: string, customRpcUrl?: string): Promise<MatchesProgram>;
